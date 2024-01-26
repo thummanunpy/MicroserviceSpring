@@ -1,0 +1,14 @@
+server.port: 9000
+# https://spring.io/blog/2023/05/24/spring-authorization-server-is-on-spring-initializr
+spring:
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          note-client:
+            registration:
+              client-id: "note-client"
+              # {bcrypt}$2a$10$jdJGhzsiIqYFpjJiYWMl/eKDOd8vdyQis2aynmFN0dgJ53XvpzzwC # the client secret is "secret" (without quotes)
+              client-secret: "{noop}secret"
+              client-authentication-methods: "client_secret_basic"
+              authorization-grant-types: "client_credentials"
